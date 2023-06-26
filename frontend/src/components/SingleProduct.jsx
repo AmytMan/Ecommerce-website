@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import {toast} from 'react-toastify'
 import Carousel from 'react-bootstrap/Carousel';
-import { useSingleProductQuery } from "../features/productApi";
-import { Row, Card, Col, ListGroup, Container } from "react-bootstrap";
+import { useDeleteProductMutation, useSingleProductQuery } from "../features/productApi";
+import { Row, Card, Col, ListGroup, Container ,Button } from "react-bootstrap";
 import { BiCategory } from "react-icons/bi";
 import { MdOutlineDescription } from "react-icons/md";
 import { GiPriceTag } from "react-icons/gi";
@@ -11,8 +12,16 @@ import { CgNametag } from "react-icons/cg";
 import { MdOutlineCountertops } from "react-icons/md";
 const SingleProduct = () => {
   const { id } = useParams();
+  const [deleteProduct]  = useDeleteProductMutation();
   const { data, isLoading, error} = useSingleProductQuery(id);
-  const imageUrl = `http://localhost:5000/images/${data.image[0]}`;
+
+  const handleDelete = async(id)=>{
+   const response =  await deleteProduct(id)
+   if(response.data){
+    toast.success('product deleted successfully')
+   }
+  }
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -53,33 +62,27 @@ const SingleProduct = () => {
                     )
                   )}
                 </ListGroup.Item>
+                <ListGroup.Item> 
+                  <Button variant="danger" onClick={()=>handleDelete(data.id)}>delete</Button>
+                </ListGroup.Item>
               </ListGroup>
             </Col>
+
             <Col md={6} xs={12}>
-                <Carousel fade>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3 className="text-danger">First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={imageUrl}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3 className="text-danger">second</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+              <Card style={{width:'30rem'}} >
+              <Carousel fade>
+              {
+                data.image.map((item,index)=>(
+                 
+                   
+                      <Carousel.Item key={index}>
+                        <img src={`http://localhost:5000/images/${item}`} alt="image not fount"  style={{width:'30rem',height:'30rem'}}/>
+                      </Carousel.Item>                   
+
+                ))
+              }
+               </Carousel>
+               </Card>
             </Col>
           </Row>
         </Container>
