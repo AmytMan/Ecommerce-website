@@ -1,0 +1,57 @@
+[
+    {
+        "category":"Women's Fashion" ,
+        "subCategory":{
+            "title1":"tops ,tshirt and jeans ",
+            "title2":"sweater and jacket",
+            "title3":"skirts and leggins",
+            "title4":"shoes and bags",
+            "title5":"kurtha, saree, lehenga"
+        }
+    },
+
+    {
+        "category":"Men's Fashion" ,
+        "subCategory":{
+            "title1":"tops ,tshirt and jeans ",
+            "title2":"sweater and jacket",
+            "title3":"coats and underwear",
+            "title4":"shoes and bags"
+        }
+    },
+
+    {
+        "category":"Health and Beauty",
+        "subCategory":{
+            "title1":"message oil ,hair oil and moisturizer ",
+            "title2":"shampoo, soaps and body gel ",
+            "title3":"deodrants ,men fragrants and women fragrants",
+            "title4":"scrub and cleansers"        }
+    },
+    {
+        "category":"Electronics devices" ,
+        "subCategory":{
+            "title1":"laptop ",
+            "title2":"smartphones",
+            "title3":"TV ,Printer and camera"
+        }
+    },
+    {
+        "category":"Babies and Toys",
+        "subCategory":{
+            "title1":"baby message oil, soap and diapers ",
+            "title2":"baby toys",
+            "title3":"doll,electronic toy and puzzle game"
+        }
+    },
+    {
+        "category":"Sport's and Outdoor" ,
+        "subCategory":{
+            "title1":"cricket ,football ,volleyball",
+            "title2":"badminton ,tennis and hockey",
+            "title3":"puzzle game ,chess board ",
+            "title4":"swimming dress ,googles"       
+        }
+    }
+    
+]

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;700&display=swap');
+*{
+    font-family: 'Merienda', cursive;   
+user-select: none;
+  }
+form span{  
+    color: red;
+  }
+form span::before {
+    display: inline;
+    content: "⚠ ";
+  }
+  input ,select {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #CCD0D5;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  button[type="submit"],
+  input[type="submit"] {
+    background: #77A7FF;
+    color: black;
+    text-transform: uppercase;
+    margin-top: 20px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 10px;
+  }
+   .custom-dropdown .dropdown-toggle::after {
+    display: none;
+  }
+  
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background: #1877F2;
+  }
+
+  .box-shadow{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+  }
+  .bg_img{
+    background-image: url('./assets/shopping.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+ /* Custom pagination styles */
+.pagination .page-link {
+  background-color: white;
+  border-color: black; 
+  color: black; 
+}
+
+.pagination .page-link:hover {
+  background-color:#77A7FF ; 
+  border-color: black; 
+  color: black; 
+}
+
+.pagination .page-item.active .page-link {
+  background-color:#ff8397 ; 
+  border-color: black; 
+  color: white; 
+}
+
+  
