@@ -1,14 +1,12 @@
-import React from 'react'
-import { Card ,ListGroup} from 'react-bootstrap';
-import {BiCurrentLocation} from 'react-icons/bi';
-import { CgMail } from 'react-icons/cg';
-import { CgProfile } from 'react-icons/cg';
-import {IoMdLogOut} from 'react-icons/io'
+import React,{useState} from 'react';
+import icon from '../constant/icons'
+import {ListGroup,Offcanvas} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/authSlice';
 import { useNavigate } from 'react-router-dom';
 
-function Profile() {
+function Profile(props) {
+  
     const navigate = useNavigate();
 const dispatch = useDispatch();
 
@@ -18,14 +16,23 @@ const dispatch = useDispatch();
       }
     const userInfo = useSelector((state)=>state.authentication.userinfo)
   return (
-    
-     <ListGroup >
-      <ListGroup.Item variant="info" className="text-capitalize"><CgProfile/> {userInfo.name}</ListGroup.Item>
-      <ListGroup.Item variant="info"><CgMail /> {userInfo.email}</ListGroup.Item>
-      <ListGroup.Item variant="info" className="text-capitalize"> <BiCurrentLocation /> {userInfo.location}</ListGroup.Item>
-      <ListGroup.Item onClick={handleLogout} variant="info"> <IoMdLogOut /> Logout</ListGroup.Item>
-
-    </ListGroup>
+    <>
+   { props.value && (
+      <Offcanvas show={props.value } onHide={props.onHide} placement='end' >
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title><icon.CgProfile/>{userInfo.name}</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+      <ListGroup >
+    <ListGroup.Item variant="info"><icon.CgMail /> {userInfo.email}</ListGroup.Item>
+    <ListGroup.Item variant="info" className="text-capitalize"> <icon.BiCurrentLocation /> {userInfo.location}</ListGroup.Item>
+    <ListGroup.Item onClick={handleLogout} variant="info"> <icon.IoMdLogOut /> Logout</ListGroup.Item>
+  </ListGroup>
+      </Offcanvas.Body>
+    </Offcanvas>
+   
+   )}
+    </>
    
   )
 }

@@ -41,4 +41,21 @@ const addProductController = async(req,res)=>{
         res.status(400).json({msg:'validator error , entered data is not valid',error})
     }
 } 
-export {productController ,addProductController,singleProduct}
+const deleteProductController = async(req,res)=>{
+    try {
+        const val = req.params.id
+   const deleted=  await ProductModel.deleteOne({id:val})
+    if(deleted){
+        res.send({msg:'product deleted successfully'}) 
+
+    }else{
+        res.send({msg:'error occured product not deleted'}) 
+
+    }
+        
+    } catch (error) {
+       res.send({msg:error}) 
+    }
+    
+}
+export {productController ,addProductController,singleProduct ,deleteProductController}
