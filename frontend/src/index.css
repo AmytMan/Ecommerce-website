@@ -3,10 +3,10 @@
     font-family: 'Merienda', cursive;   
 user-select: none;
   }
-form span{  
+form p{  
     color: red;
   }
-form span::before {
+form p::before {
     display: inline;
     content: "⚠ ";
   }
@@ -68,5 +68,17 @@ form span::before {
   border-color: black; 
   color: white; 
 }
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 
   

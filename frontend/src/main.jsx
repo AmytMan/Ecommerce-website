@@ -20,6 +20,7 @@ import SingleProduct from "./components/SingleProduct.jsx";
 import CreateProduct from "./admin/CreateProduct.jsx";
 import MyComponent from "./screens/Pagination.jsx";
 import PrivateRoute from "./components/ProtectedRoute.jsx";
+import AdminDashboard from "./admin/AdminDashboard.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} name="home">
@@ -27,6 +28,8 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<SignupScreen />} />
       <Route path="/hero" element={<Hero/>}/>
+      <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
+
       <Route element={<PrivateRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/pagination" element={<MyComponent/>}/>
